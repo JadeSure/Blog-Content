@@ -217,6 +217,11 @@ When it created, it can only be bounded in a specific AZ;
 after snapshot, it can be moved a volumn across different AZ;  
 EC2 Instance Store
 
+## EC2 instance metadata
+
+Metadata = info about the EC2 instance  
+Userdata = launch script of the EC2 instance
+
 #### EBS Snapshots
 
 1. Make a backup of your EBS volume at a point in time and copy snapshots across AZ or Region;
@@ -462,8 +467,18 @@ A container for records that define how to route traffic to a domain and its sub
 1. public hosted zones - application.mypublicdomain.com (public domain names)
 2. private hosted zones - route traffic within one or more VPCs (private domain names) : application.company.internal
 
+## AWS SDK Overviews
+
+if you dont specify or configure a default region, then us-east-1 will be chosen by default
+
 ## SQS, SNS, Kinesis
 
 SQS: queue model(decoupling applications)  
 SNS: pub/sub model  
 Kinesis: real-time streaming model
+
+You have enabled versioning and want to be extra careful when it comes to deleting files on an S3 bucket. What should you enable to prevent accidental permanent deletions? Enable MFA Delete
+
+You are looking to get recommendations for S3 Lifecycle Rules. How can you analyze the optimal number of days to move objects between different storage tiers? S3 Analytics
+
+You are looking to build an index of your files in S3, using Amazon RDS PostgreSQL. To build this index, it is necessary to read the first 250 bytes of each object in S3, which contains some metadata about the content of the file itself. There are over 100,000 files in your S3 bucket, amounting to 50 TB of data. How can you build this index efficiently?

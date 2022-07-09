@@ -65,3 +65,24 @@ create a CloudWatch Metric and associate a CloudWatch Alarm, then create a healt
 ### You have purchased a domain on GoDaddy and would like to use Route 53 as the DNS Service Provider. What should you do to make this work?
 
 Public Hosted Zones are meant to be used for people requesting your website through the Internet. Finally, NS records must be updated on the 3rd party Registrar.
+
+## S3 Encryptions
+
+1. SSE-S3(server side encryption) encryption: encryption using keys handled & managed by Amazon S3.
+2. SSE-KMS(key management service): encryption using keys handled & manged by KMS
+3. SSE-C: server-side encryption using data keys fully managed by the customer outside of AWS (HTTPS is mandatory for SSE-C)
+4. Client Side Encryption: client library such as the Amazon S3 Encryption Client.
+
+With SSE-KMS, the encryption happens in AWS, and the encryption keys are managed by AWS but you have full control over the rotation policy of the encryption key. Encryption keys stored in AWS.  
+With Client-Side Encryption, you have to do the encryption yourself and you have full control over the encryption keys. You perform the encryption yourself and send the encrypted data to AWS. AWS does not know your encryption keys and cannot decrypt your data.
+
+### S3 security
+
+1. User based: IAM policies - which API calls should be allowed for a specific user from IAM console.
+
+Multi-Part Upload is recommended as soon as the file is over 100 MB；  
+You have enabled versioning in your S3 bucket which already contains a lot of files. Which version will the existing files have? null；
+
+### CORS - Cross-Origin Resouce Sharing
+
+Cross-Origin Resource Sharing (CORS) defines a way for client web applications that are loaded in one domain to interact with resources in a different domain. To learn more about CORS, go here: https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html
